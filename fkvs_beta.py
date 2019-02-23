@@ -100,6 +100,17 @@ if __name__ == '__main__':
     dump(linear_clf, 'PassiveAggressive_model.joblib')
 
 
+    file=open("test1.txt")
+    text=file.read()
+    file.close()
+    dict_1={120092:text}
+    df=pd.DataFrame(dict_1,index={"text"})
+    df=df.T
+    df=df['text']
+    test=tfidf_vector.transform(df)
+    pred = linear_clf.predict(test)
+    pred
+
 
 
     #TFIDF vector model using Naive Bayes 
